@@ -1,6 +1,6 @@
 local Api = {
   tree = {},
-  node = { navigate = { sibling = {}, git = {}, diagnostics = {} }, run = {}, open = {} },
+  node = { navigate = { sibling = {}, git = {}, diagnostics = {}, none = {}}, run = {}, open = {} },
   events = {},
   marks = { bulk = {}, navigate = {} },
   fs = { copy = {} },
@@ -152,6 +152,8 @@ Api.node.navigate.git.next = inject_node(require("nvim-tree.actions.moves.item")
 Api.node.navigate.git.prev = inject_node(require("nvim-tree.actions.moves.item").fn("prev", "git"))
 Api.node.navigate.diagnostics.next = inject_node(require("nvim-tree.actions.moves.item").fn("next", "diag"))
 Api.node.navigate.diagnostics.prev = inject_node(require("nvim-tree.actions.moves.item").fn("prev", "diag"))
+Api.node.navigate.none.next = inject_node(require("nvim-tree.actions.moves.item").fn("next", "none"))
+Api.node.navigate.none.prev = inject_node(require("nvim-tree.actions.moves.item").fn("prev", "none"))
 
 Api.git.reload = require("nvim-tree.actions.reloaders.reloaders").reload_git
 
